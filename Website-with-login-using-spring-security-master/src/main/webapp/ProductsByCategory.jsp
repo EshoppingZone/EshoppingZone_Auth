@@ -35,16 +35,53 @@
 		<th> Description  </th>
 		<th> Specification  </th>
 		<th> Add To Cart </th>
-		<%-- <jstl:if test="${product!=null }" >
-			<tr>
+		<jstl:if test="${product!=null }" >
+				<tr>
 				<td>${product.productId}</td>
 				<td>${product.productName }</td>
 				<td>${product.category}</td>
+				<td>
+					<table>
+						<jstl:forEach var="rating" items="${product.rating}">
+							<tr style="font-style: italic;">
+								<td>${rating.key}</td>
+								<td>${rating.value}</td>
+							</tr>
+						</jstl:forEach>	
+					</table>	
+				</td>
+				<td>
+					<table>
+						<jstl:forEach var="review" items="${product.review}">
+							<tr style="font-style: italic;">
+								<td>${review.key}</td>
+								<td>${review.value}</td>
+							</tr>
+						</jstl:forEach>	
+					</table>
+				</td>
 				<td>${product.price}</td>
 				<td>${product.description}</td>
+				<td>
+					<table>
+						<jstl:forEach var="specification" items="${product.specification}">
+							<tr style="font-style: italic;">
+								<td>${specification.key}</td>
+								<td>${specification.value}</td>
+							</tr>
+						</jstl:forEach>	
+					</table>
+				</td>	
+				<td>
+					<input name="productId" value="${product.productId}" type="hidden" readonly="readonly">
+					<!-- Quantity : <input type="number" name = "quantity" min = "1" /> -->
+					<!-- <input value="Add To Cart" type="submit" > -->
+					<a href="/addToCart?productId=${product.productId}">add to cart</a>
+						
+				</td>
 				</tr>
-		</jstl:if>	 --%>
-		<jstl:forEach var="productsList" items="${product}">
+				</jstl:if>
+		<jstl:forEach var="productsList" items="${products}">
 			<tr>
 				<td>${productsList.productId}</td>
 				<td>${productsList.productName}</td>

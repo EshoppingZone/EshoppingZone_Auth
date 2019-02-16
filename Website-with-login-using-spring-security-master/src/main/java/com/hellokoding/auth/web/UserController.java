@@ -131,7 +131,7 @@ public class UserController {
 	public ModelAndView electronicsCategory(@RequestParam("category") String category) {
 		List productsList = restTemplate.getForObject("http://localhost:8989/products/category/" + category,
 				List.class);
-		return new ModelAndView("ProductsByCategory", "product", productsList);
+		return new ModelAndView("ProductsByCategory", "products", productsList);
 	}
 
 	@RequestMapping("/shoppingcart")
