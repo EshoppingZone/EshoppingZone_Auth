@@ -11,7 +11,11 @@ import com.cg.order.orderservice.orders.Orders;
 public interface OrderRepository extends MongoRepository<Orders, Integer>{
 
 	List<Orders> findByCustomerId(Integer customerId);
+  
+    
+    Orders findFirstByOrderByOrderIdDesc();
+
 	
-	Orders findFirstByOrderByOrderIdDesc();
+	
 
 }

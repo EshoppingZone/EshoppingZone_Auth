@@ -26,12 +26,21 @@ public interface OrderService {
 
 	List<Address> getAddressByCustomerId(int customerId);
 
+	
+
+	List<Address> getAllAddress();
+
 	//Optional<Orders> getOrderById(int orderId);
+	Orders getOrderById();
+
+	Optional<Orders> getOrderById(int orderId);
+
+	void onlinePayment(Cart cart);
 
 	//Optional<Orders> getOrderByCustomerId(int customerId);
 
 	/* void placeOrder(Orders orders); */
-
+	
 
 	
 
